@@ -1,0 +1,22 @@
+type Query {
+  categories: [Category]
+  transactions: [Transaction]    
+}
+
+type Mutation {
+  addCategory(name: String): Category
+}
+
+type Category {
+  id: ID!
+  name: String
+  parent: Category
+}
+
+type Transaction {
+  id: ID!
+  detail: String
+  value: Int
+  date: String    
+  categories: [Category]
+}
