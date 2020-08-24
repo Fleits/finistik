@@ -1,0 +1,48 @@
+{
+    "parser": "@typescript-eslint/parser",
+    "plugins": ["@typescript-eslint"],
+    "parserOptions": {
+      "sourceType": "module",
+      "project": "./tsconfig.json",
+      "jsx": true,
+      "useJSXTextNode": true
+    },
+    "extends": ["airbnb-typescript"],
+    "rules": {
+      "jsx-quotes": ["warn", "prefer-single"],
+      "quotes": ["warn", "single"],
+      "indent": ["warn", 2, { "SwitchCase": 1 }],
+      "brace-style": ["warn", "allman", { "allowSingleLine": true }],
+      "@typescript-eslint/brace-style":  ["warn", "allman", { "allowSingleLine": true }],
+      "space-before-function-paren": ["warn", "never"],
+      "object-curly-spacing": ["warn", "always"],
+      "comma-spacing": ["warn", {"before": false, "after": true}],
+      "comma-style": ["warn", "last"],
+      "semi": ["warn", "always"],
+      "keyword-spacing": [
+        "warn",
+        {
+          "before": true,
+          "after": true,
+          "overrides": {
+            "if": { "after": false },
+            "while": { "after": false },
+            "for": { "after": false },
+            "switch": { "after": false }
+          }
+        }
+      ],
+      "eol-last": ["warn", "never"],
+      "max-len": ["warn", { "code": 120 }],
+      "no-unused-vars": "warn",
+      "newline-per-chained-call": ["warn", { "ignoreChainWithDepth": 4 }],
+      "react/jsx-curly-newline": ["warn", { "multiline": "forbid", "singleline": "forbid" } ],
+      "react/jsx-first-prop-new-line": ["warn",  "multiline-multiprop" ],
+      "react/jsx-props-no-multi-spaces":["warn"],
+      "react/display-name":["off"],
+      "linebreak-style": ["error", "windows"],
+      "import/prefer-default-export": 0,
+      "comma-dangle": 0,
+      "arrow-parens": ["error", "as-needed"]
+    }
+}
