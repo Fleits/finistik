@@ -1,3 +1,5 @@
+import moment from 'moment';
+
 function formatAmount(amount: number, currency: string = 'EUR'): string
 {
   const options = {
@@ -15,4 +17,16 @@ function formatAmount(amount: number, currency: string = 'EUR'): string
   return formatter.format(amount / 100);
 }
 
-export { formatAmount };
+function formatDate(date:string): string
+{
+  const dateParsed = moment(date, "YYYY-MM-DD", true);
+
+  if(!dateParsed.isValid()) { return date; }
+
+  if(dateParsed.year() === 2020) { return dateParsed.format("D. MMM") }
+  else if(dateParsed.year() <= 2020) { return dateParsed.format("DD.MM.YYYY") }
+
+  return date;
+}
+
+export { formatAmount, formatDate };
