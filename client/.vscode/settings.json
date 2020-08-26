@@ -1,4 +1,11 @@
 {
+    "workbench.colorCustomizations": {
+        
+        "titleBar.activeForeground": "#000",
+        "titleBar.inactiveForeground": "#000000CC",
+        "titleBar.activeBackground": "#004799",
+        "titleBar.inactiveBackground": "#004faa94"
+    },
     "eslint.format.enable": true,
     "[typescriptreact]": { 
         "editor.defaultFormatter": "dbaeumer.vscode-eslint" ,
