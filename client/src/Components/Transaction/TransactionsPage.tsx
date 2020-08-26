@@ -12,6 +12,7 @@ export const GetTransactions = gql`
       detail
       categories 
       {
+        id
         name
       }
     }

@@ -36,7 +36,7 @@ type Props = {
 
 function TransactionList({transactions}: Props)
 {
-  return <Table columns={columns} dataSource={transactions} />;
+  return <Table columns={columns} dataSource={transactions} rowKey={'id'} />;
 }
 
 export { TransactionList };
