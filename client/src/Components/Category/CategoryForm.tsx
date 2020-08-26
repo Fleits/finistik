@@ -54,20 +54,20 @@ function CategoryForm({ categories }: Props)
 
   return (
     <Row gutter={[8, 0]}>
-      <Col span={6}>
+      <Col flex='0 1 300px'>
         <Input
           placeholder='Name'
           value={categoryName}
           onChange={e => setCategoryName(e.target.value)}
         />
       </Col>
-      <Col span={4}>
+      <Col flex='0 0 210px'>
         <Select value={categoryParent} onChange={e => setCategoryParent(e.toString())} style={{ width: '100%' }}>
           <Select.Option key={CategoryRootParent} value={CategoryRootParent}>Root</Select.Option>
           {categories.map(c => <Select.Option key={c.id} value={c.id}>{c.name}</Select.Option>)}
         </Select>
       </Col>
-      <Col span={2}>
+      <Col flex='0 0 80px'>
         <Button onClick={() => handleAddCategory()}>Erstellen</Button>
       </Col>
     </Row>
