@@ -6,9 +6,9 @@ const CategoryDb = InitCategories;
 
 const categories = () => CategoryDb;
 
-const addCategory = (_, {name}) =>
+const addCategory = (_, {name, parent}) =>
 {
-  const newCateogory = { id: generateId(), name };
+  const newCateogory = { id: generateId(), name, parent };
   CategoryDb.push(newCateogory);
   return newCateogory;
 }
@@ -17,4 +17,3 @@ const CategoryQuery = { categories };
 const CategoryMutation = { addCategory };
 
 export { CategoryQuery, CategoryMutation };
-

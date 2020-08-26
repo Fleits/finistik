@@ -1,16 +1,16 @@
 type Query {
   categories: [Category]
-  transactions: [Transaction]    
+  transactions: [Transaction]
 }
 
 type Mutation {
-  addCategory(name: String): Category
+  addCategory(name: String, parent: ID): Category
 }
 
 type Category {
   id: ID!
   name: String
-  parent: Category
+  parent: ID
 }
 
 type Transaction {
