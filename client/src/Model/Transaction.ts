@@ -6,6 +6,6 @@ type Transaction = {
   amount: number
   date: string
   categories: Category[]
-}
+};
 
 export type { Transaction };
