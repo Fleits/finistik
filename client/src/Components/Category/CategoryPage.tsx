@@ -1,7 +1,6 @@
 import React from 'react';
 import { Divider } from 'antd';
 import { useQuery, gql } from '@apollo/client';
-import styled from 'styled-components';
 import { LoadingIndicator } from 'Components/LoadingIndicator';
 import { CategoryTree } from './CategoryTree';
 import { CategoryForm } from './CategoryForm';
