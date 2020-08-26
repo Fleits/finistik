@@ -1,45 +1,42 @@
 import React from 'react';
-import { useQuery, gql } from '@apollo/client';
-import { LoadingIndicator } from 'Components/LoadingIndicator';
-import { formatAmount } from 'Helper/FormatAmount';
+import { Table, Tag } from 'antd';
+import { formatAmount, formatDate } from 'Helper/Format';
+import { Transaction, Category } from 'Model';
 
-export const GetTransactions = gql`
-  query transactions {
-    transactions {
-      id
-      amount
-      date
-      detail
-      categories 
-      {
-        name
-      }
-    }
+const columns = [
+  {
+    title: 'Datum',
+    dataIndex: 'date',
+    key: 'date',
+    render: (date: string) => formatDate(date),
+  },
+  {
+    title: 'Detail',
+    dataIndex: 'detail',
+    key: 'detail'
+  },
+
+  {
+    title: 'Betrag',
+    key: 'amount',
+    dataIndex: 'amount',
+    render: (amount: number) => formatAmount(amount),
+  },
+  {
+    title: 'Kategorien',
+    dataIndex: 'categories',
+    key: 'categories',
+    render: (categories: Category[]) => categories.map((c: Category) => <Tag key={c.id}>{c.name}</Tag>)
   }
-`;
+];
 
-function TransactionList()
+type Props = {
+  transactions:Transaction[]
+}
+
+function TransactionList({transactions}: Props)
 {
-  const { loading, error, data: { transactions = [] } = {} } = useQuery(GetTransactions);
-
-  if(error) return <p>Error!</p>;
-
-  return (
-    <div style={{ position: 'relative' }}>
-      {transactions.map((t: any) => (
-        <p>
-          {t.date}
-          -
-          {formatAmount(t.amount)}
-          -
-          {t.detail}
-          -
-          { t.categories.map((c: any) => c.name).join(', ') }
-        </p>
-      ))}
-      {loading && (<LoadingIndicator overlay />)}
-    </div>
-  );
+  return <Table columns={columns} dataSource={transactions} />;
 }
 
 export { TransactionList };

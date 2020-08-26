@@ -4,7 +4,7 @@ import { ApolloClient, ApolloProvider, InMemoryCache } from '@apollo/client';
 import { AppLayout } from 'Components/Layout';
 import { Routes } from 'Const/Routes';
 import { CategoryPage } from 'Components/Category';
-import { TransactionList } from 'Components/Transaction';
+import { TransactionsPage } from 'Components/Transaction';
 
 const client = new ApolloClient({
   uri: 'http://localhost:4000',
@@ -25,7 +25,7 @@ function App()
               <h1>add</h1>
             </Route>
             <Route path={Routes.TransactionList.path}>
-              <TransactionList />
+              <TransactionsPage />
             </Route>
             <Route path={Routes.Categories.path}>
               <CategoryPage />
