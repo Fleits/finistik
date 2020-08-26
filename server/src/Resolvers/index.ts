@@ -1,11 +1,14 @@
 import { CategoryQuery, CategoryMutation } from './Category';
+import {TransactionsQuery, TransactionsMutation } from './Transaction';
 
 const resolvers = {
-    Query: {
-        ...CategoryQuery
+    Query: {        
+        ...CategoryQuery,
+        ...TransactionsQuery
     },
     Mutation: {
-        ...CategoryMutation
+        ...CategoryMutation,
+        ...TransactionsMutation
     }
   };
 

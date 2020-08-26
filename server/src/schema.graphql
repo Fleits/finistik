@@ -5,6 +5,7 @@ type Query {
 
 type Mutation {
   addCategory(name: String, parent: ID): Category
+  addTransaction(detail: String, amount: Int, date: String, categories: [ID]): Transaction
 }
 
 type Category {
@@ -16,7 +17,7 @@ type Category {
 type Transaction {
   id: ID!
   detail: String
-  value: Int
-  date: String    
+  amount: Int
+  date: String
   categories: [Category]
 }
