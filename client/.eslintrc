@@ -32,6 +32,19 @@
           }
         }
       ],
+      "@typescript-eslint/keyword-spacing": [
+        "warn",
+        {
+          "before": true,
+          "after": true,
+          "overrides": {
+            "if": { "after": false },
+            "while": { "after": false },
+            "for": { "after": false },
+            "switch": { "after": false }
+          }
+        }
+      ],
       "eol-last": ["warn", "never"],
       "max-len": ["warn", { "code": 120 }],
       "no-unused-vars": "warn",

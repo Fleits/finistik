@@ -7,8 +7,12 @@
         "titleBar.inactiveBackground": "#004faa94"
     },
     "eslint.format.enable": true,
-    "[typescriptreact]": { 
-        "editor.defaultFormatter": "dbaeumer.vscode-eslint" ,
+    "[typescriptreact]": {
+        "editor.defaultFormatter": "dbaeumer.vscode-eslint",
+        "editor.tabSize": 2
+    },
+    "[typescript]": {
+        "editor.defaultFormatter": "dbaeumer.vscode-eslint",
         "editor.tabSize": 2
     }
 }
