@@ -2,6 +2,7 @@ import { v4 as generateId } from 'uuid';
 import { CategoryDb } from './Category';
 
 const InitTransactions = [
+  { id: '58a2d3e3-8c31-4add-b0bb-e97230385ab2', date: '2019-12-04', amount: 1000000, detail: 'Autokauf', categories: ['77bb7976-7a6e-49e8-8034-9146757f3dfc'] },
   { id: 'eea7e8ea-70f1-4bf1-a1ae-75b354e3a04e', date: '2020-08-04', amount: 3500, detail: 'Gutshof', categories: ['d40299de-d982-402a-a739-03dee3f56497'] }, 
   { id: '2eed7fe2-0a15-4932-b567-bbff664b0d0e', date: '2020-08-04', amount: 2000, categories: ['25650d22-5470-4daa-98a6-73a430685b48'] },
   { id: 'f75692ea-f7fa-4117-81f5-8ad751d09faa', date: '2020-08-06', amount: 50000, detail: 'Hotel Anzahlung', categories: ['01010ab3-46b5-4150-b108-c241d984f47a'] },
