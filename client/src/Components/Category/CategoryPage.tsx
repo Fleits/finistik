@@ -16,14 +16,6 @@ export const GetCategories = gql`
   }
 `;
 
-const Overlay = styled.div`
-  position: 'absolute';
-  top: 0;
-  width: '100%';
-  height: '100%';
-  background: '#dedede90';
-`;
-
 function CategoryPage()
 {
   const { loading, error, data: { categories = [] } = {} } = useQuery(GetCategories, { fetchPolicy: 'cache-and-network' });
@@ -35,11 +27,7 @@ function CategoryPage()
       <CategoryForm categories={categories} />
       <Divider />
       <CategoryTree categories={categories} />
-      {loading && (
-        <Overlay>
-          <LoadingIndicator />
-        </Overlay>
-      )}
+      {loading && (<LoadingIndicator overlay />)}
     </div>
   );
 }
