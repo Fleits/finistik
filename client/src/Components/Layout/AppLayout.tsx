@@ -1,10 +1,10 @@
-import React, { useState } from 'react';
+import React, { ReactNode, useState } from 'react';
 import { Layout } from 'antd';
 import { ContentLayout } from './ContentLayout';
 import { Header } from './Header';
 import { Navigation } from './Navigation';
 
-function AppLayout({ children }: { children: JSX.Element })
+function AppLayout({ children }: { children: ReactNode })
 {
   const [layoutBroken, setLayoutBroken] = useState<boolean>(false);
   const [layoutCollapsed, setLayoutCollapsed] = useState<boolean>(false);
@@ -25,7 +25,7 @@ function AppLayout({ children }: { children: JSX.Element })
       >
         <Navigation onNavigate={() => setLayoutCollapsed(layoutBroken)} />
       </Layout.Sider>
-      <Layout>
+      <Layout style={{ background: '#ffffff' }}>
         <Header broken={layoutBroken} />
         <ContentLayout>
           {children}
