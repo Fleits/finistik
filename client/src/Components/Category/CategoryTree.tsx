@@ -1,7 +1,7 @@
 import React from 'react';
 import { DraggableTree } from 'Components/ThirdParty/DraggableTree';
 import { generateTree, TreeItem } from 'Helper/TreeHelper';
-import { Category } from './Category';
+import { Category } from 'Model';
 
 type Props = {
   categories: Category[]

@@ -4,7 +4,7 @@ import {
   Button, Input, Select, Row, Col, notification
 } from 'antd';
 import { GetCategories } from './CategoryPage';
-import { Category } from './Category';
+import { Category } from 'Model';
 
 const AddCategory = gql`
   mutation AddCategory($name: String!, $parent: ID)
