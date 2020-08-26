@@ -1,6 +1,7 @@
 import React from 'react';
 import { useQuery, gql } from '@apollo/client';
 import { LoadingIndicator } from 'Components/LoadingIndicator';
+import { formatAmount } from 'Helper/FormatAmount';
 
 export const GetTransactions = gql`
   query transactions {
@@ -29,7 +30,7 @@ function TransactionList()
         <p>
           {t.date}
           -
-          {t.amount}
+          {formatAmount(t.amount)}
           -
           {t.detail}
           -
