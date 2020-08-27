@@ -100,7 +100,6 @@ class DraggableTree extends React.Component
 
   render()
   {
-    console.log(this.props);
     return (
       <Tree
         {...this.props}
