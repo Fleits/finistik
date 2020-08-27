@@ -18,7 +18,7 @@ function AppLayout({ children }: { children: ReactNode })
       <Layout.Sider
         breakpoint='lg'
         collapsedWidth='0'
-        style={{ paddingTop: layoutBroken ? 0 : 64, ...siderStyle }}
+        style={{ paddingTop: 64, ...siderStyle }}
         collapsed={layoutCollapsed}
         onBreakpoint={broken => setLayoutBroken(broken)}
         onCollapse={collapsed => setLayoutCollapsed(collapsed)}
