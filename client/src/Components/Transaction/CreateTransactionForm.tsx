@@ -2,11 +2,13 @@ import React from 'react';
 import {
   Form, Input, InputNumber, DatePicker, Button, Select
 } from 'antd';
+import { FormInstance } from 'antd/lib/form';
 import { Moment } from 'moment';
 import { Category } from 'Model';
 import { Today } from 'Helper/Format';
 
 type Props = {
+  form: FormInstance
   categoriesLoading: boolean
   categories: Category[]
   onSubmit: (values: FormValues) => void
@@ -16,12 +18,18 @@ type FormValues = {
   date: Moment, amount: number, detail: string, categories: string[]
 };
 
-function CreateTransactionForm({ categoriesLoading, categories, onSubmit }: Props)
+function CreateTransactionForm({
+  form, categoriesLoading, categories, onSubmit
+}: Props)
 {
-  const [form] = Form.useForm();
-
   return (
-    <Form form={form} onFinish={onSubmit} layout='horizontal' labelCol={{ span: 2 }} wrapperCol={{ span: 14 }}>
+    <Form
+      form={form}
+      onFinish={onSubmit}
+      layout='horizontal'
+      labelCol={{ span: 2 }}
+      wrapperCol={{ span: 14 }}
+    >
       <Form.Item name='date' label='Datum' initialValue={Today}>
         <DatePicker defaultValue={Today} />
       </Form.Item>
@@ -43,10 +51,7 @@ function CreateTransactionForm({ categoriesLoading, categories, onSubmit }: Prop
       </Form.Item>
       <Form.Item>
         <Button type='primary' htmlType='submit'>
-          Submit
-        </Button>
-        <Button htmlType='button'>
-          Reset
+          Hinzufügen
         </Button>
       </Form.Item>
     </Form>

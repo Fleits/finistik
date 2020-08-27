@@ -1,5 +1,6 @@
 import React from 'react';
 import { useQuery, gql, useMutation } from '@apollo/client';
+import { Form } from 'antd';
 import { toValidAmount } from 'Helper/Converter';
 import { Notify } from 'Components/Notify';
 import { GetCategories } from 'Components/Category/Query';
@@ -26,10 +27,15 @@ const AddTransaction = gql`
 
 function CreateTransactionPage()
 {
+  const [form] = Form.useForm();
   const { loading: categoriesLoading, data: { categories: availableCategories = [] } = {} } = useQuery(GetCategories);
   const [addTransaction] = useMutation(AddTransaction, {
     refetchQueries: [{ query: GetTransactions }],
-    onCompleted: () => Notify.success('Ausgabe gebucht'),
+    onCompleted: () =>
+    {
+      Notify.success('Ausgabe gebucht');
+      form.resetFields();
+    },
     onError: () => Notify.error('Fehler beim Erstellen der Buchung :(')
   });
 
@@ -49,6 +55,7 @@ function CreateTransactionPage()
 
   return (
     <CreateTransactionForm
+      form={form}
       categoriesLoading={categoriesLoading}
       categories={availableCategories}
       onSubmit={handleSubmit}
