@@ -3,8 +3,8 @@ import { gql, useMutation } from '@apollo/client';
 import {
   Button, Input, Select, Row, Col, notification
 } from 'antd';
-import { GetCategories } from './CategoryPage';
 import { Category } from 'Model';
+import { GetCategories } from './Query';
 
 const AddCategory = gql`
   mutation AddCategory($name: String!, $parent: ID)

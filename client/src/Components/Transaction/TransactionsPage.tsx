@@ -1,23 +1,8 @@
 import React from 'react';
-import { useQuery, gql } from '@apollo/client';
+import { useQuery } from '@apollo/client';
 import { LoadingIndicator } from 'Components/LoadingIndicator';
 import { TransactionList } from './TransactionList';
-
-export const GetTransactions = gql`
-  query transactions {
-    transactions {
-      id
-      amount
-      date
-      detail
-      categories 
-      {
-        id
-        name
-      }
-    }
-  }
-`;
+import { GetTransactions } from './Query';
 
 function TransactionsPage()
 {

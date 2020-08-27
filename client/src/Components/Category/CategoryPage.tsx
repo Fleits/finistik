@@ -1,19 +1,10 @@
 import React from 'react';
 import { Divider } from 'antd';
-import { useQuery, gql } from '@apollo/client';
+import { useQuery } from '@apollo/client';
 import { LoadingIndicator } from 'Components/LoadingIndicator';
 import { CategoryTree } from './CategoryTree';
 import { CategoryForm } from './CategoryForm';
-
-export const GetCategories = gql`
-  query categories {
-    categories {
-      id
-      name
-      parent
-    }
-  }
-`;
+import { GetCategories } from './Query';
 
 function CategoryPage()
 {

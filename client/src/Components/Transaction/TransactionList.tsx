@@ -32,11 +32,11 @@ const columns = [
 
 type Props = {
   transactions:Transaction[]
-}
+};
 
-function TransactionList({transactions}: Props)
+function TransactionList({ transactions }: Props)
 {
-  return <Table columns={columns} dataSource={transactions} rowKey={'id'} />;
+  return <Table columns={columns} dataSource={transactions} rowKey='id' />;
 }
 
 export { TransactionList };

@@ -2,16 +2,9 @@ import React from 'react';
 import { useQuery, gql, useMutation } from '@apollo/client';
 import { notification } from 'antd';
 import { toValidAmount } from 'Helper/Converter';
+import { GetCategories } from 'Components/Category/Query';
+import { GetTransactions } from 'Components/Transaction/Query';
 import { CreateTransactionForm, FormValues } from './CreateTransactionForm';
-
-const GetCategories = gql`
-  query categories {
-    categories {
-      id
-      name
-    }
-  }
-`;
 
 const AddTransaction = gql`
   mutation AddTransaction($date: String, $detail: String, $amount: Int, $categories: [ID])
@@ -35,7 +28,7 @@ function CreateTransactionPage()
 {
   const { loading: categoriesLoading, data: { categories: availableCategories = [] } = {} } = useQuery(GetCategories);
   const [addTransaction] = useMutation(AddTransaction, {
-    refetchQueries: [{ query: GetCategories }],
+    refetchQueries: [{ query: GetTransactions }],
     onCompleted: () => notification.success({
       message: 'Ausgabe gebucht',
       duration: 5,
