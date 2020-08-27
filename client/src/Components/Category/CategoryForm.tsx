@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
 import { gql, useMutation } from '@apollo/client';
 import {
-  Button, Input, Select, Row, Col, notification
+  Button, Input, Select, Row, Col
 } from 'antd';
+import { Notify } from 'Components/Notify';
 import { Category } from 'Model';
 import { GetCategories } from './Query';
 
@@ -30,16 +31,8 @@ function CategoryForm({ categories }: Props)
   const [categoryParent, setCategoryParent] = useState(CategoryRootParent);
   const [addCategory] = useMutation(AddCategory, {
     refetchQueries: [{ query: GetCategories }],
-    onCompleted: data => notification.success({
-      message: `Kategorie ${data.addCategory.name} erstellt`,
-      duration: 5,
-      placement: 'bottomRight'
-    }),
-    onError: () => notification.error({
-      message: 'Fehler beim Erstellen der Kategorie :(',
-      duration: 5,
-      placement: 'bottomRight'
-    }),
+    onCompleted: data => Notify.success(`Kategorie ${data.addCategory.name} erstellt`),
+    onError: () => Notify.error('Fehler beim Erstellen der Kategorie :('),
   });
 
   const handleAddCategory = () =>
