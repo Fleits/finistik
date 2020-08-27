@@ -16,9 +16,9 @@ const transactions = () => TransactionsDb.map(t => ({...t, categories: CategoryD
 
 const addTransaction = (_, {detail, amount, date, categories = []}) =>
 {
-  const newTransaction = { id: generateId(), name, detail, amount, date, categories };
+  const newTransaction = { id: generateId(), detail, amount, date, categories };
   TransactionsDb.push(newTransaction);
-  return newTransaction;
+  return {...newTransaction, categories: CategoryDb.filter(c => newTransaction.categories.includes(c.id))};
 }
 
 const TransactionsQuery = { transactions };
