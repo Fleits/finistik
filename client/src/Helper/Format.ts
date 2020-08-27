@@ -1,5 +1,8 @@
 import moment from 'moment';
 
+const Today = moment();
+const CurrentYear = Today.year();
+
 function formatAmount(amount: number, currency: string = 'EUR'): string
 {
   const options = {
@@ -19,14 +22,14 @@ function formatAmount(amount: number, currency: string = 'EUR'): string
 
 function formatDate(date:string): string
 {
-  const dateParsed = moment(date, "YYYY-MM-DD", true);
+  const dateParsed = moment(date, 'YYYY-MM-DD', true);
 
   if(!dateParsed.isValid()) { return date; }
 
-  if(dateParsed.year() === 2020) { return dateParsed.format("D. MMM") }
-  else if(dateParsed.year() <= 2020) { return dateParsed.format("DD.MM.YYYY") }
+  if(dateParsed.year() === CurrentYear) { return dateParsed.format('D. MMM'); }
+  if(dateParsed.year() < CurrentYear) { return dateParsed.format('DD.MM.YYYY'); }
 
   return date;
 }
 
-export { formatAmount, formatDate };
+export { formatAmount, formatDate, Today };
